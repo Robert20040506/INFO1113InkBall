@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Wall.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inkball_scaffold</a> &gt; <a href="index.source.html" class="el_package">inkball</a> &gt; <span class="el_source">Wall.java</span></div><h1>Wall.java</h1><pre class="source lang-java linenums">package inkball;
+
+import processing.core.PVector;
+
+/**
+ * Represents a wall tile in the InkBall game. Walls can collide with balls and change their direction or color.
+ */
+public class Wall extends Tile {
+
+    private final int color;
+
+    /**
+     * Constructs a new Wall object.
+     *
+     * @param centerX The x-coordinate of the wall's center.
+     * @param centerY The y-coordinate of the wall's center.
+     * @param color   The color code of the wall.
+     */
+    public Wall(float centerX, float centerY, int color) {
+<span class="fc" id="L20">        super(centerX, centerY);</span>
+<span class="fc" id="L21">        this.color = color;</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * Checks if the ball collides with this wall.
+     *
+     * @param ball The ball to check collision with.
+     * @return True if collision occurs, false otherwise.
+     */
+    public boolean collidesWithBall(Ball ball) {
+        // Axis-Aligned Bounding Box (AABB) collision detection
+<span class="fc" id="L32">        float ballLeft = ball.getCenterXPosition() - Ball.RADIUS;</span>
+<span class="fc" id="L33">        float ballRight = ball.getCenterXPosition() + Ball.RADIUS;</span>
+<span class="fc" id="L34">        float ballTop = ball.getCenterYPosition() - Ball.RADIUS;</span>
+<span class="fc" id="L35">        float ballBottom = ball.getCenterYPosition() + Ball.RADIUS;</span>
+
+<span class="fc" id="L37">        float wallLeft = topLeftCorner.x;</span>
+<span class="fc" id="L38">        float wallRight = topRightCorner.x;</span>
+<span class="fc" id="L39">        float wallTop = topLeftCorner.y;</span>
+<span class="fc" id="L40">        float wallBottom = bottomLeftCorner.y;</span>
+
+        // Check for collision
+<span class="fc bfc" id="L43" title="All 8 branches covered.">        return (ballRight &gt;= wallLeft &amp;&amp; ballLeft &lt;= wallRight &amp;&amp; ballBottom &gt;= wallTop &amp;&amp; ballTop &lt;= wallBottom);</span>
+    }
+
+    /**
+     * Handles the collision between the ball and this wall.
+     *
+     * @param ball The ball that collided with the wall.
+     */
+    public void handleCollision(Ball ball) {
+        // Determine the side of collision
+<span class="fc" id="L53">        float overlapLeft = (ball.centerXPosition + Ball.RADIUS) - topLeftCorner.x;</span>
+<span class="fc" id="L54">        float overlapRight = topRightCorner.x - (ball.centerXPosition - Ball.RADIUS);</span>
+<span class="fc" id="L55">        float overlapTop = (ball.centerYPosition + Ball.RADIUS) - topLeftCorner.y;</span>
+<span class="fc" id="L56">        float overlapBottom = bottomLeftCorner.y - (ball.centerYPosition - Ball.RADIUS);</span>
+
+        // Find the minimal overlap
+<span class="fc" id="L59">        float minOverlapX = Math.min(overlapLeft, overlapRight);</span>
+<span class="fc" id="L60">        float minOverlapY = Math.min(overlapTop, overlapBottom);</span>
+
+        // Resolve collision
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (minOverlapX &lt; minOverlapY) {</span>
+            // Horizontal collision
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (overlapLeft &lt; overlapRight) {</span>
+                // Collision on the left side
+<span class="fc" id="L67">                ball.centerXPosition -= overlapLeft;</span>
+            } else {
+                // Collision on the right side
+<span class="fc" id="L70">                ball.centerXPosition += overlapRight;</span>
+            }
+<span class="fc" id="L72">            PVector velocity = ball.getVelocity();</span>
+<span class="fc" id="L73">            velocity.x *= -1; // Reverse X velocity</span>
+<span class="fc" id="L74">            ball.setVelocity(velocity);</span>
+<span class="fc" id="L75">        } else {</span>
+            // Vertical collision
+<span class="fc bfc" id="L77" title="All 2 branches covered.">            if (overlapTop &lt; overlapBottom) {</span>
+                // Collision on the top side
+<span class="fc" id="L79">                ball.centerYPosition -= overlapTop;</span>
+            } else {
+                // Collision on the bottom side
+<span class="fc" id="L82">                ball.centerYPosition += overlapBottom;</span>
+            }
+<span class="fc" id="L84">            PVector velocity = ball.getVelocity();</span>
+<span class="fc" id="L85">            velocity.y *= -1; // Reverse Y velocity</span>
+<span class="fc" id="L86">            ball.setVelocity(velocity);</span>
+        }
+
+        // System.out.println(&quot;Colliding&quot;);
+
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (this.color != 0) {</span>
+<span class="fc" id="L92">            ball.setColor(this.color, App.getInstance().ballImages.get(this.color));</span>
+        }
+<span class="fc" id="L94">    }</span>
+
+    /**
+     * Returns the color code of the wall.
+     *
+     * @return The color code.
+     */
+    public int getColor() {
+<span class="fc" id="L102">        return color;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

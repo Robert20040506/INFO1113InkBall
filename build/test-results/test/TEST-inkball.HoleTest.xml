@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.HoleTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-10-19T01:52:35" hostname="MacBook-Air" time="0.008">
+  <properties/>
+  <testcase name="testHandleAttraction_NullBallVelocity()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="testHandleAttraction_ScoreGoesNegative()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="testHandleAttraction_BallColorZero()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="testHandleAttraction_BallOnBoundaryOfTolerance()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="testHandleAttraction_DistanceZero()" classname="inkball.HoleTest" time="0.0"/>
+  <testcase name="testHandleAttraction_BothColorsZero()" classname="inkball.HoleTest" time="0.0"/>
+  <testcase name="testHandleAttraction_HoleColorZero()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="testHandleAttraction_DifferentColors_NoZero()" classname="inkball.HoleTest" time="0.0"/>
+  <testcase name="testHandleAttraction_AttractiveForce()" classname="inkball.HoleTest" time="0.0"/>
+  <testcase name="testHandleAttraction_NoAttraction()" classname="inkball.HoleTest" time="0.001"/>
+  <testcase name="getColorTest()" classname="inkball.HoleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

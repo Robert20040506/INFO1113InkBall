@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.GameObjectTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-10-19T01:52:34" hostname="MacBook-Air" time="0.001">
+  <properties/>
+  <testcase name="testDistanceTo_SamePosition()" classname="inkball.GameObjectTest" time="0.0"/>
+  <testcase name="testDistanceTo()" classname="inkball.GameObjectTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

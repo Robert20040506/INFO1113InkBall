@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.AppTest" tests="41" skipped="0" failures="0" errors="0" timestamp="2024-10-19T01:52:33" hostname="MacBook-Air" time="0.19">
+  <properties/>
+  <testcase name="testDrawLineLayer_NoLines()" classname="inkball.AppTest" time="0.018"/>
+  <testcase name="testLoadLayout_InvalidV()" classname="inkball.AppTest" time="0.032"/>
+  <testcase name="testAdvanceLevel_NotLastLevel()" classname="inkball.AppTest" time="0.004"/>
+  <testcase name="testDrawLineLayer_WithLines_WithCollision()" classname="inkball.AppTest" time="0.005"/>
+  <testcase name="testTick_GameRunningNoBalls()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testMousePressed()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testTick_LevelComplete()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testTick_PlayLevelCompleteAnimationActive()" classname="inkball.AppTest" time="0.002"/>
+  <testcase name="testLoadLayout_UnknownCharacters()" classname="inkball.AppTest" time="0.003"/>
+  <testcase name="testTogglePause()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testDrawConveyorBeltLayer_BallsInQueue_PeekNotNull()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testRemoveLineAtMouse_LineDoesNotExist()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testDrawTopBarLayer_PAUSED()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testUpdateTime()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testDrawMethod()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testLevelRestart()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testLoadLayout_AllCases()" classname="inkball.AppTest" time="0.003"/>
+  <testcase name="testDrawLevelCompletionLayer()" classname="inkball.AppTest" time="0.021"/>
+  <testcase name="testKeyPressed()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testLoadLayout_LongLines()" classname="inkball.AppTest" time="0.003"/>
+  <testcase name="testDrawLineLayer_NotDrawing()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testMainMethod()" classname="inkball.AppTest" time="0.038"/>
+  <testcase name="testTick_PlayLevelCompleteAnimationTriggered()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testTick_PlayLevelCompleteAnimationInactive()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testDrawTopBarLayer_LevelTimesUp()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testDrawLineLayer_WithLines_NoCollision()" classname="inkball.AppTest" time="0.003"/>
+  <testcase name="testTick_LevelCompletionAnimation()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testMouseDraggedAndReleased()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testDrawTopBarLayer_GameEnded()" classname="inkball.AppTest" time="0.0"/>
+  <testcase name="testTick_GameRunningWithBalls()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testRemoveLineAtMouse_LineExists()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testDrawConveyorBeltLayer_BallsInQueue_PeekNull()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testTick_PlayLevelCompleteAnimationNotTriggered()" classname="inkball.AppTest" time="0.002"/>
+  <testcase name="testLoadLayout_FileNotFound()" classname="inkball.AppTest" time="0.004"/>
+  <testcase name="testDrawLineLayer_DrawingInProgress()" classname="inkball.AppTest" time="0.003"/>
+  <testcase name="testAdvanceLevel_LastLevel()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testKeyReleased()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testTick_GameEnded()" classname="inkball.AppTest" time="0.002"/>
+  <testcase name="testTick_LevelCompletionAnimationEnds()" classname="inkball.AppTest" time="0.002"/>
+  <testcase name="testRemoveLineAtMouse_NoLines()" classname="inkball.AppTest" time="0.001"/>
+  <testcase name="testLoadLevel()" classname="inkball.AppTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[File not found: nonexistent_file.txt
+]]></system-err>
+</testsuite>

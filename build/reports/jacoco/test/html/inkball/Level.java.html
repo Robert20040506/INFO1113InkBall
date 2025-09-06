@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Level.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inkball_scaffold</a> &gt; <a href="index.source.html" class="el_package">inkball</a> &gt; <span class="el_source">Level.java</span></div><h1>Level.java</h1><pre class="source lang-java linenums">package inkball;
+
+import java.util.List;
+
+/**
+ * Represents a game level in the InkBall game.
+ * Contains configuration details such as layout, time limits, and ball sequences.
+ */
+public class Level {
+
+    private String layout;
+    private int time;
+    private int spawnInterval;
+    private float scoreIncreaseModifier;
+    private float scoreDecreaseModifier;
+    private List&lt;String&gt; balls;
+
+    /**
+     * Constructs a new Level object with specified parameters.
+     *
+     * @param layout                The layout file name for the level.
+     * @param time                  The time limit for the level in seconds.
+     * @param spawnInterval         The interval between ball spawns in seconds.
+     * @param scoreIncreaseModifier The modifier for score increases.
+     * @param scoreDecreaseModifier The modifier for score decreases.
+     * @param balls                 The list of balls to be spawned in the level.
+     */
+<span class="fc" id="L28">    public Level(String layout, int time, int spawnInterval, float scoreIncreaseModifier, float scoreDecreaseModifier, List&lt;String&gt; balls) {</span>
+<span class="fc" id="L29">        this.layout = layout;</span>
+<span class="fc" id="L30">        this.time = time;</span>
+<span class="fc" id="L31">        this.spawnInterval = spawnInterval;</span>
+<span class="fc" id="L32">        this.scoreIncreaseModifier = scoreIncreaseModifier;</span>
+<span class="fc" id="L33">        this.scoreDecreaseModifier = scoreDecreaseModifier;</span>
+<span class="fc" id="L34">        this.balls = balls;</span>
+<span class="fc" id="L35">    }</span>
+
+    /**
+     * Gets the layout file name for the level.
+     *
+     * @return The layout file name.
+     */
+    public String getLayout() {
+<span class="fc" id="L43">        return layout;</span>
+    }
+
+    /**
+     * Gets the time limit for the level in seconds.
+     *
+     * @return The time limit.
+     */
+    public int getTime() {
+<span class="fc" id="L52">        return time;</span>
+    }
+
+    /**
+     * Gets the interval between ball spawns in seconds.
+     *
+     * @return The spawn interval.
+     */
+    public int getSpawnInterval() {
+<span class="fc" id="L61">        return spawnInterval;</span>
+    }
+
+    /**
+     * Gets the modifier for score increases.
+     *
+     * @return The score increase modifier.
+     */
+    public float getScoreIncreaseModifier() {
+<span class="fc" id="L70">        return scoreIncreaseModifier;</span>
+    }
+
+    /**
+     * Gets the modifier for score decreases.
+     *
+     * @return The score decrease modifier.
+     */
+    public float getScoreDecreaseModifier() {
+<span class="fc" id="L79">        return scoreDecreaseModifier;</span>
+    }
+
+    /**
+     * Gets the list of balls to be spawned in the level.
+     *
+     * @return The list of balls.
+     */
+    public List&lt;String&gt; getBalls() {
+<span class="fc" id="L88">        return balls;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

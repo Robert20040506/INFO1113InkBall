@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Hole.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inkball_scaffold</a> &gt; <a href="index.source.html" class="el_package">inkball</a> &gt; <span class="el_source">Hole.java</span></div><h1>Hole.java</h1><pre class="source lang-java linenums">package inkball;
+
+import processing.core.PVector;
+
+/**
+ * Represents a hole in the InkBall game. Balls can be attracted to holes and potentially captured.
+ */
+public class Hole extends Tile {
+
+    public static final int HALF_SIZE = 32;
+    public static final int ATTRACTION_RADIUS = 32;
+    private int color;
+
+    /**
+     * Constructs a new Hole object.
+     *
+     * @param centerX The x-coordinate of the hole's center.
+     * @param centerY The y-coordinate of the hole's center.
+     * @param color   The color code of the hole.
+     */
+    public Hole(float centerX, float centerY, int color) {
+<span class="fc" id="L22">        super(centerX, centerY);</span>
+<span class="fc" id="L23">        this.color = color;</span>
+<span class="fc" id="L24">    }</span>
+
+    /**
+     * Handles the attraction of a ball towards the hole.
+     *
+     * @param ball     The ball being attracted.
+     * @param distance The distance between the ball and the hole.
+     */
+    public void handleAttraction(Ball ball, float distance) {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (distance != 0) {</span>
+            // Calculate the attractive force vector
+<span class="fc" id="L35">            PVector attractiveForce = PVector.sub(getCenterPosition(), ball.getCenterPosition());</span>
+<span class="fc" id="L36">            attractiveForce.mult((float) (ATTRACTION_RADIUS / distance * 0.01));</span>
+<span class="fc" id="L37">            ball.setVelocity(PVector.add(ball.getVelocity(), attractiveForce));</span>
+        }
+
+        // Check if the ball is within the capture tolerance
+<span class="fc" id="L41">        int tolerance = Ball.RADIUS;</span>
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        if (Math.abs(ball.getCenterXPosition() - centerXPosition) &lt; tolerance &amp;&amp; Math.abs(ball.getCenterYPosition() - centerYPosition) &lt; tolerance) {</span>
+<span class="fc" id="L43">            captureBall(ball);</span>
+        }
+<span class="fc" id="L45">    }</span>
+
+    /**
+     * Captures the ball when it reaches the hole.
+     *
+     * @param ball The ball to be captured.
+     */
+    private void captureBall(Ball ball) {
+<span class="fc" id="L53">        App.getInstance().addBallToRemove(ball);</span>
+
+<span class="fc" id="L55">        String ballColorName = ColorCode.fromValue(ball.getColor());</span>
+
+<span class="pc bpc" id="L57" title="1 of 6 branches missed.">        if (ball.getColor() == 0 || this.color == 0 || ball.getColor() == this.color) {</span>
+            // Correct hole or grey hole
+<span class="fc" id="L59">            int scoreIncrease = (int) (App.getInstance().getScoreIncreaseMap().get(ballColorName) * App.getInstance().getScoreIncreaseModifier());</span>
+<span class="fc" id="L60">            App.getInstance().increaseScore(scoreIncrease);</span>
+            
+<span class="fc" id="L62">        } else {</span>
+            // Wrong hole
+<span class="fc" id="L64">            int scoreDecrease = (int) (App.getInstance().getScoreDecreaseMap().get(ballColorName) * App.getInstance().getScoreDecreaseModifier());</span>
+<span class="fc" id="L65">            App.getInstance().decreaseScore(scoreDecrease);</span>
+<span class="fc" id="L66">            App.getInstance().addBallToQueue(ballColorName);</span>
+        }
+<span class="fc" id="L68">    }</span>
+
+    /**
+     * Returns the color of the hole.
+     *
+     * @return The color code.
+     */
+    public int getColor() {
+<span class="fc" id="L76">        return color;</span>
+    }
+
+    /**
+     * Sets the color of the hole.
+     *
+     * @param color The new color.
+     */
+    public void setColor(int color) {
+<span class="fc" id="L85">        this.color = color;</span>
+<span class="fc" id="L86">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

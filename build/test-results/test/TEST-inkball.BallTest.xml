@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.BallTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2024-10-19T01:52:34" hostname="MacBook-Air" time="0.463">
+  <properties/>
+  <testcase name="testHandleCollisionWithLine_NoCollision1()" classname="inkball.BallTest" time="0.002"/>
+  <testcase name="testHandleCollisionWithLine_NoCollision2()" classname="inkball.BallTest" time="0.004"/>
+  <testcase name="testCheckSurrounding_NoSurroundingTiles1()" classname="inkball.BallTest" time="0.001"/>
+  <testcase name="testCheckSurrounding_NoSurroundingTiles2()" classname="inkball.BallTest" time="0.003"/>
+  <testcase name="testCheckSurrounding_WithWalls()" classname="inkball.BallTest" time="0.002"/>
+  <testcase name="testUpdatePosition_BounceOffRightEdge()" classname="inkball.BallTest" time="0.001"/>
+  <testcase name="testCheckSurrounding_WithTile()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testSetAndGetColor()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testUpdatePosition_BounceOffLeftEdge()" classname="inkball.BallTest" time="0.001"/>
+  <testcase name="testCheckSurrounding_NoTiles()" classname="inkball.BallTest" time="0.001"/>
+  <testcase name="testCheckSurrounding_WithHoleTile1()" classname="inkball.BallTest" time="0.426"/>
+  <testcase name="testCheckSurrounding_WithHoleTile2()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testCalculateNormal_NonZeroVector()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testHandleCollisionWithLine_Collision()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testUpdatePosition_BounceOffTopEdge()" classname="inkball.BallTest" time="0.001"/>
+  <testcase name="testUpdatePosition_BounceOffBottomEdge()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testCalculateNormal_ZeroLengthLine()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testUpdatePosition_NormalMovement()" classname="inkball.BallTest" time="0.0"/>
+  <testcase name="testCheckSurrounding_WithWallTile()" classname="inkball.BallTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
